@@ -49,3 +49,5 @@ const onListening = () => {
     : 'port ' + addr.port;
   morgan('Listening on ' + bind);
 };
+
+export default app;

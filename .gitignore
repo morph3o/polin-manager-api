@@ -101,3 +101,5 @@ jspm_packages/
 
 .idea/
 /dist/
+/polin-manager-api.iml
+polin-manager-api.iml
