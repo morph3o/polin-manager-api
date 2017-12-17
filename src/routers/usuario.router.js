@@ -9,4 +9,10 @@ router.get('/', (req, res) => {
   });
 });
 
+router.post('/', (req, res) => {
+  models.Usuario.create(req.body).then(savedUsuario => {
+    res.json(savedUsuario)
+  });
+});
+
 export default router;

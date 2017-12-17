@@ -57,4 +57,30 @@ describe('Usuario', () => {
       });
     })
   });
+
+  describe('POST', () => {
+    it('should create a new user', (done) => {
+      const usuario = {
+        "id_user": 1,
+        rut: "11111111-8",
+        nombre: "John Doe",
+        "telefono_fijo": "+56999999999",
+        "telefono_movil": "+56999999999",
+        direccion: "Tarapaca 380",
+        email: "john.doe@email.com",
+        empresa: "Empresa SPA"
+      };
+
+      chai.request(server)
+        .post('/usuarios')
+        .send(usuario)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.be.a('object');
+          res.body.should.have.property('nombre');
+          res.body.nombre.should.equal("John Doe");
+          done();
+        });
+    });
+  });
 });
